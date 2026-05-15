@@ -1,0 +1,325 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full Screen */
+body{
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  background: #020617;
+}
+
+/* Animated Gradient Background */
+.main{
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    -45deg,
+    #0f172a,
+    #1e3a8a,
+    #312e81,
+    #0f172a,
+    #7c3aed
+  );
+
+  background-size: 400% 400%;
+
+  animation: gradientMove 12s ease infinite;
+}
+
+/* Moving Gradient Animation */
+@keyframes gradientMove{
+
+  0%{
+    background-position: 0% 50%;
+  }
+
+  50%{
+    background-position: 100% 50%;
+  }
+
+  100%{
+    background-position: 0% 50%;
+  }
+}
+
+/* Glow Balls */
+.main::before{
+  content: "";
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  background: rgba(59,130,246,0.4);
+
+  border-radius: 50%;
+
+  top: -120px;
+  left: -120px;
+
+  filter: blur(120px);
+
+  animation: moveGlow1 8s ease-in-out infinite alternate;
+}
+
+.main::after{
+  content: "";
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  background: rgba(168,85,247,0.35);
+
+  border-radius: 50%;
+
+  bottom: -120px;
+  right: -120px;
+
+  filter: blur(120px);
+
+  animation: moveGlow2 10s ease-in-out infinite alternate;
+}
+
+/* Glow Animations */
+@keyframes moveGlow1{
+  from{
+    transform: translate(0,0);
+  }
+
+  to{
+    transform: translate(80px,60px);
+  }
+}
+
+@keyframes moveGlow2{
+  from{
+    transform: translate(0,0);
+  }
+
+  to{
+    transform: translate(-80px,-60px);
+  }
+}
+
+/* Premium Glass Card */
+.divclass{
+  width: 380px;
+
+  padding: 45px 35px;
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.4),
+    inset 0 0 12px rgba(255,255,255,0.08);
+
+  text-align: center;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: 0.4s ease;
+
+  z-index: 10;
+}
+
+/* Card Hover */
+.divclass:hover{
+  transform: translateY(-10px) scale(1.03);
+
+  box-shadow:
+    0 15px 50px rgba(0,0,0,0.5),
+    0 0 35px rgba(59,130,246,0.45);
+}
+
+/* Shine Effect */
+.divclass::before{
+  content: "";
+
+  position: absolute;
+
+  top: -150%;
+  left: -50%;
+
+  width: 200%;
+  height: 200%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.18),
+    transparent
+  );
+
+  transform: rotate(25deg);
+
+  transition: 0.8s;
+}
+
+.divclass:hover::before{
+  top: 120%;
+}
+
+/* Heading */
+#para{
+  font-size: 32px;
+  font-weight: 700;
+
+  color: white;
+
+  margin-bottom: 35px;
+
+  line-height: 1.5;
+
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.3);
+}
+
+/* Premium Button */
+button{
+  padding: 15px 38px;
+
+  border: none;
+  border-radius: 14px;
+
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  color: white;
+
+  cursor: pointer;
+
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #8b5cf6,
+    #ec4899
+  );
+
+  background-size: 200% 200%;
+
+  animation: buttonGradient 4s ease infinite;
+
+  box-shadow:
+    0 8px 25px rgba(59,130,246,0.4);
+
+  transition: 0.3s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button Gradient Animation */
+@keyframes buttonGradient{
+
+  0%{
+    background-position: 0% 50%;
+  }
+
+  50%{
+    background-position: 100% 50%;
+  }
+
+  100%{
+    background-position: 0% 50%;
+  }
+}
+
+/* Hover */
+button:hover{
+  transform: scale(1.08);
+
+  box-shadow:
+    0 10px 30px rgba(236,72,153,0.5);
+}
+
+/* Click */
+button:active{
+  transform: scale(0.95);
+}
+
+/* Button Shine */
+button::before{
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255,255,255,0.25);
+
+  transform: skewX(-30deg);
+
+  transition: 0.5s;
+}
+
+button:hover::before{
+  left: 120%;
+}
+
+/* Floating Text */
+.floating-text{
+  position: absolute;
+
+  color: #ffffff;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  pointer-events: none;
+
+  animation: floatUp 2s linear forwards;
+
+  text-shadow:
+    0 0 10px #ff00ff,
+    0 0 20px #00ffff,
+    0 0 35px #ffffff;
+
+  z-index: 100;
+}
+
+/* Floating Animation */
+@keyframes floatUp{
+
+  0%{
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  50%{
+    opacity: 1;
+    transform: translate(-50%, -80px) scale(1.3);
+  }
+
+  100%{
+    opacity: 0;
+    transform: translate(-50%, -180px) scale(1.7);
+  }
+}
