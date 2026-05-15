@@ -5,7 +5,19 @@ const Usercard = () => {
 
   const [texts, setTexts] = useState([])
 
+  const speakRadha = () => {
+    const speech = new SpeechSynthesisUtterance("Radha Radha")
+    
+    speech.lang = "hi-IN"
+    speech.rate = 1
+    speech.pitch = 1.2
+
+    window.speechSynthesis.speak(speech)
+  }
+
   const handleClick = (e) => {
+
+    speakRadha()
 
     const newText = {
       x: e.clientX,
