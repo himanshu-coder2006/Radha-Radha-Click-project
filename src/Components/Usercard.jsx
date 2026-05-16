@@ -1,18 +1,14 @@
 import React, { useState } from 'react'
 import './Usercard.css'
+import radhaAudio from '../assets/radha.mp3'
 
 const Usercard = () => {
 
   const [texts, setTexts] = useState([])
 
   const speakRadha = () => {
-    const speech = new SpeechSynthesisUtterance("Radha Radha")
-    
-    speech.lang = "hi-IN"
-    speech.rate = 1
-    speech.pitch = 1.2
-
-    window.speechSynthesis.speak(speech)
+    const audio = new Audio(radhaAudio)
+    audio.play()
   }
 
   const handleClick = (e) => {
@@ -25,7 +21,13 @@ const Usercard = () => {
       id: Date.now()
     }
 
-    setTexts([...texts, newText])
+    setTexts((prev) => [...prev, newText])
+
+    setTimeout(() => {
+      setTexts((prev) =>
+        prev.filter((item) => item.id !== newText.id)
+      )
+    }, 2000)
   }
 
   return (
