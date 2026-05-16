@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import './Usercard.css'
-import radhaAudio from '../assets/radha.mp3'
 
 const Usercard = () => {
 
   const [texts, setTexts] = useState([])
 
   const speakRadha = () => {
-    const audio = new Audio(radhaAudio)
-    audio.play()
+    const speech = new SpeechSynthesisUtterance("Radha Radha")
+    
+    speech.lang = "hi-IN"
+    speech.rate = 1
+    speech.pitch = 1.2
+
+    window.speechSynthesis.speak(speech)
   }
 
   const handleClick = (e) => {
@@ -22,11 +26,6 @@ const Usercard = () => {
     }
 
     setTexts([...texts, newText])
-
-    // Text remove after animation
-    setTimeout(() => {
-      setTexts((prev) => prev.filter((item) => item.id !== newText.id))
-    }, 2000)
   }
 
   return (
